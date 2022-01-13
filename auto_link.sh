@@ -10,6 +10,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+echo "========== Start to link file by [$0] =========== "
+
+set -x
+
 shadowSuffix="${SHADOW_SUFFIX:=shadow}"
 includeLinkPath="${INCLUDE_LINK_PATH:=}"
 
@@ -17,8 +21,13 @@ torrentName="$1"
 contentPath="$2"
 savePath="$3"
 
+# remove last / for savePath
+if [ "${savePath: -1}" = "/" ]; then
+    savePath="${savePath%?}"
+fi
+
 # filter by whitelist
-if [ -n $includeLinkPath ]; then
+if [ -n "$includeLinkPath" ]; then
     IFS=","
     included=""
     for keyword in ${includeLinkPath[@]}; do
