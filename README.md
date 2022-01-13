@@ -42,7 +42,7 @@
 
 将`auto_link.sh`映射到qb容器中，例如`/tmp/auto_link.sh`
 
-在qb的完成后执行脚本配置中配置`/tmp/auto_symbollink.sh "%N" "%F" "%D" "%R"`
+在qb的完成后执行脚本配置中配置`/tmp/auto_link.sh "%N" "%F" "%D" "%R"`
 
 如果并非所有下载文件夹你都希望映射，那么你可以在环境变量中配置`INCLUDE_LINK_PATH=movie,series`，仅下载文件路径（不含种子名称）中包括这些关键字的文件才会被映射，多个关键字用逗号分割
 
