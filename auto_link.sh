@@ -3,7 +3,7 @@
 ###########################################################
 # Author        : Mopip77
 # Email         : mopip77@qq.com
-# Last modified : 2022-01-12 21:55
+# Last modified : 2022-10-22 10:55
 # Filename      : auto_symbollink.sh
 # Description   : auto link downloaded file to media folder
 ###########################################################
@@ -20,6 +20,8 @@ includeLinkPath="${INCLUDE_LINK_PATH:=}"
 torrentName="$1"
 contentPath="$2"
 savePath="$3"
+fileCount="$4"
+rootPath="$5"
 
 # remove last / for savePath
 if [ "${savePath: -1}" = "/" ]; then
@@ -42,7 +44,7 @@ shadowFolder="${savePath}-${shadowSuffix}"
 mkdir -p "$shadowFolder"
 originFolderName="${savePath##*/}"
 
-if [ -f "$contentPath" ]; then
+if [ -f "$rootPath" ]; then
     shadowFolder="${shadowFolder}/${torrentName}"
     fileName="${contentPath##*/}"
     mkdir -p "$shadowFolder"
